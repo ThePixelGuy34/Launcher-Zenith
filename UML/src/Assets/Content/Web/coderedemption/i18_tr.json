@@ -1,0 +1,19 @@
+{
+    "messages.com.epicgames.launcher.codeRedemption.title" : "Bir Ürün Kodu Gir",
+    "messages.com.epicgames.launcher.codeRedemption.titleSignedIn" : "Ürününü Al",
+    "messages.com.epicgames.launcher.codeRedemption.content" : "DVD kutunla veya başka bir Epic Games ürünüyle birlikte gelen ürün kodunu buraya gir.",
+    "messages.com.epicgames.launcher.codeRedemption.contentSignedIn" : "<span class=\"displayName\">{0}</span> olarak oturum açtın.",
+    "messages.com.epicgames.launcher.codeRedemption.statusContent" : "İçerik kalıcı olarak Epic Games hesabına bağlanacak, bu yüzden istendiğinde doğru hesapla giriş yaptığından emin ol.",
+    "messages.com.epicgames.launcher.codeRedemption.validCode" : "Girmiş olduğun kod <span class=\"productName\">{0}</span> için. \"{1}\" butonuna tıklamak bu içeriği <span class=\"displayName\">{2}</span> adlı Epic Games hesabına bağlayacak.",
+    "messages.com.epicgames.launcher.codeRedemption.complete.title" : "Harika, neredeyse bitti!",
+    "messages.com.epicgames.launcher.codeRedemption.complete.content1" : "İçeriğine erişmeden önce, oturum açman veya bir hesap oluşturman gerek.",
+    "messages.com.epicgames.launcher.codeRedemption.complete.content2" : "Epic Games hesabın her gün büyüyen oyuncu ve geliştirici topluluğumuza katılmanı sağlar.",
+    "messages.com.epicgames.launcher.codeRedemption.unknownError" : "Bir hata oluştu. Lütfen daha sonra tekrar dene ve sorun devam ederse destek ekibi ile iletişime geç.",
+    "messages.com.epicgames.launcher.codeRedemption.enterYourCode" : "Kodunu gir",
+    "messages.com.epicgames.launcher.createAccount" : "Bir hesap oluştur",
+    "messages.com.epicgames.launcher.signin" : "Oturum aç",
+    "messages.com.epicgames.launcher.cancel" : "İptal",
+    "messages.com.epicgames.launcher.redeem" : "Kodu Kullan",
+    "messages.com.epicgames.launcher.redeemed" : "Kod Kullanıldı",
+    "messages.com.epicgames.launcher.continue" : "Devam Et"
+}

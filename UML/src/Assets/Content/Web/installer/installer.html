@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  <link type="text/css" href="installer.css" rel="stylesheet">
+</head>
+<body>
+  <div id="downloadHeader" class="downloadHeader">
+      <h1 
+        class="installerText downloadText" 
+        data-loc-code="messages.com.epicgames.launcher.installer.downloadTitle"></h1>
+      <div class="downloadHealth tempNoShow">
+        <div 
+            id="health-downloadbytespeed-chart" 
+            class="installerText downloadHealthText none"></div>
+          <div 
+            id="health-downloadbytespeed-info" 
+            class="installerText downloadHealthInfo"></div>
+      </div>
+    <h1 
+      id="size-downloadbytespeed-chart" 
+      class="installerText"></h1>
+  </div>
+  <div id="downloadbytespeed-chart" style="width: 436px;" ></div>
+
+  <h1 class="installerText spacer" data-loc-code="messages.com.epicgames.launcher.installer.diskReadTitle"></h1>
+  <div id="diskreadbytespeed-chart" style="width: 436px;"></div>
+
+  <h1 class="installerText spacer" data-loc-code="messages.com.epicgames.launcher.installer.diskWriteTitle"></h1>
+  <div id="diskwritebytespeed-chart" style="width: 436px;"></div>
+
+  <h1 class="installerText spacer" data-loc-code="messages.com.epicgames.launcher.installer.operationsTitle"></h1>
+  <div id="fileoperation-chart" style="width: 436px;"></div>
+</body>
+
+<script src="d3/d3.v4.min.js"></script>
+<script src="../jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../language.js" type="text/javascript" charset="utf-8"></script>
+<script src="installer.js" type="text/javascript" charset="utf-8"></script>

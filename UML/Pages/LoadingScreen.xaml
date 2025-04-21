@@ -1,0 +1,13 @@
+﻿<Page x:Class="UML.Pages.LoadingScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mp="http://schemas.mpcoding.com/mpcoding/wpf/loadinganimation"
+        Title="Loading" Height="Auto" Width="Auto" Background="Transparent">
+    <Grid Background="Transparent">
+        <TextBlock Text="Loading..." VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontWeight="Medium" Foreground="White" FontSize="24" Margin="0,0,0,0"/>
+
+        <Viewbox Width="45" Height="10" Margin="0,70,0,0">
+            <mp:ThreeDotsAnimation Color="White" Duration="0:0:0.8"/>
+        </Viewbox>
+    </Grid>
+</Page>

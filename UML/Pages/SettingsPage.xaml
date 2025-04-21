@@ -1,0 +1,160 @@
+﻿<Page x:Class="UML.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UML"
+      mc:Ignorable="d" 
+      d:DesignHeight="785" d:DesignWidth="480"
+      Title="SettingsPage" Background="#27292d">
+
+    <Page.Resources>
+        <Style x:Key="Foreground" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="#cccccc"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Padding="0" CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="#ffffff"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="#cccccc"/>
+                                <Setter Property="Cursor" Value="Arrow"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Other" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="#cccccc"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Padding="0" CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="#ffffff"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="#cccccc"/>
+                                <Setter Property="Cursor" Value="Arrow"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Button Content="SETTINGS" Padding="0,0,0,0" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="482" Height="70" Foreground="#8b8b8b" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="17" FontWeight="Regular" Click="SettingsShut_Click" Grid.Row="1">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="482" Height="70" CornerRadius="0" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left" Margin="70,0,0,0"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#27292d"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="00:00:00.15" From="#27292d" To="#2a2a2a"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="00:00:00.15" From="#2a2a2a" To="#27292d"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="00:00:00.1" To="#212121"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="00:00:00.1" To="#2a2a2a"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <DockPanel Background="#363636" Width="482" Height="2" VerticalAlignment="Top" Margin="0,70,0,0" IsHitTestVisible="False"/>
+        <DockPanel Background="#363636" Width="2" Height="30" VerticalAlignment="Top" Margin="-385,20,0,0" IsHitTestVisible="False"/>
+        <Image Source="pack://application:,,,/src/Assets/Arrow.png" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,25,0,0" IsHitTestVisible="False"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-325,-560,0,0" Text="LANGUAGE" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="15" Foreground="#cccccc"/>
+        <DockPanel Background="#6c6d6d" Width="306" Height="56" Margin="-94,-440,0,0">
+            <TextBlock FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" Text="Coming soon!" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Light" Margin="-70,0,0,0"/>
+        </DockPanel>
+        <DockPanel Background="#363636" Width="406" Height="1" VerticalAlignment="Center" Margin="0,-250,0,0" IsHitTestVisible="False"/>
+        <Button Style="{StaticResource Foreground}" Width="60" Height="20" Content="Support" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="16" Margin="-350, -150,0,0" FontWeight="Light" Click="SupportBtn_Click"/>
+        <Button Style="{StaticResource Foreground}" Width="80" Height="20" Content="Show Logs" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="16" Margin="-330,-60,0,0" FontWeight="Light" Click="ShowLogs_Click"/>
+        <DockPanel Background="#363636" Width="406" Height="1" VerticalAlignment="Center" Margin="0,50,0,0" IsHitTestVisible="False"/>
+        <DockPanel Background="#777777" Width="2" Height="21" VerticalAlignment="Center" Margin="115,200,0,0" IsHitTestVisible="False" UseLayoutRounding="True"/>
+        <DockPanel Background="#777777" Width="2" Height="21" VerticalAlignment="Center" Margin="-120,200,0,0" IsHitTestVisible="False" UseLayoutRounding="True"/>
+        <Button Style="{StaticResource Foreground}" Width="100" Height="30" Content="About Zenith" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="15" Margin="-240,200,0,0"/>
+        <Button Style="{StaticResource Foreground}" Width="200" Height="30" Content="Privacy Policy" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="15" Margin="0,200,0,0"/>
+        <Button Style="{StaticResource Foreground}" Width="120" Height="30" Content="Terms of Service" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="15" Margin="250,200,0,0"/>
+
+        <TextBlock Name="VersionID" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,310,0,0" Text="{DynamicResource LauncherVersion}" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="15" Foreground="#727373" FontWeight="Light"/>
+    </Grid>
+</Page>

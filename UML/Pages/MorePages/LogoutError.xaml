@@ -1,0 +1,97 @@
+﻿<Page x:Class="UML.Pages.MorePages.LogoutError"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UML.Pages.MorePages"
+      mc:Ignorable="d" 
+      Height="Auto" Width="Auto">
+
+    <Page.Resources>
+        <Style x:Key="GreenButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#95c990" BorderBrush="Transparent" BorderThickness="0" Padding="10" CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#aae0a4"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#95c990"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="Gray"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="DarkGray"/>
+                                <Setter Property="Foreground" Value="DarkGray"/>
+                                <Setter Property="Cursor" Value="Arrow"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ErrorCode" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#1780ff"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="#1d7bed"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="#318eff"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="Gray"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="DarkGray"/>
+                                <Setter Property="Foreground" Value="#318eff"/>
+                                <Setter Property="Cursor" Value="Arrow"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <DockPanel Background="White" Opacity="0.5" MouseLeftButtonDown="ClosePage_Click"/>
+        <DockPanel Height="308" Background="White"/>
+        <TextBlock Name="MainText" Width="575" Text="A strange error occured." FontSize="26" Margin="-30,310,0,0" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontWeight="Regular" IsHitTestVisible="False"/>
+        <TextBlock Name="DescText" Height="80" Text="You are technically logged into the launcher, yet according to us, you aren't. You must sign in again to use any features or we cannot assure stability or functionality within the Zenith Launcher." FontSize="15" Margin="480,342,551,398" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontWeight="Regular" TextWrapping="Wrap"/>
+
+        <Button Content="Sign out" Margin="350,185,0,0" Width="160" Height="45" Foreground="White" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="16" FontWeight="Regular" Click="OKButton_Click" Style="{StaticResource GreenButton}"/>
+        <Button Content="Ignore" Margin="0,185,0,0" Width="160" Height="45" Foreground="White" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="16" FontWeight="Regular" Click="CancelButton_Click" Style="{StaticResource GreenButton}"/>
+    </Grid>
+</Page>
+

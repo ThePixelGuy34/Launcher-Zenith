@@ -1,0 +1,280 @@
+﻿<Window x:Class="UML.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UML"
+        mc:Ignorable="d"
+        xmlns:mp="http://schemas.mpcoding.com/mpcoding/wpf/loadinganimation"
+        Title="Zenith Launcher" Height="850" Width="1560" MinWidth="1035" MinHeight="580" MaxWidth="3840" MaxHeight="1080"
+        Background="#1e1e1e" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style x:Key="WindowStyle" TargetType="Window">
+            <Setter Property="WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <WindowChrome CaptionHeight="0"
+                          CornerRadius="6"
+                          GlassFrameThickness="0"
+                          NonClientFrameEdges="None"
+                          ResizeBorderThickness="3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Window.Style>
+        <StaticResource ResourceKey="WindowStyle"/>
+    </Window.Style>
+
+    <Grid ClipToBounds="True" Name="MainGrid">
+        <Image Name="ToiletImg" Source="pack://application:,,,/src/Assets/Content/Web/background/BG_fortnite.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+        <DockPanel Name="BackgroundOpacity" Background="Black" Opacity="0.7"/>
+        <Frame Name="MainFrameFrameLol" NavigationUIVisibility="Hidden"/>
+        <Frame Name="PageNavigation" NavigationUIVisibility="Hidden"/>
+        <Frame Name="LoadingBarFrame" NavigationUIVisibility="Hidden" Height="8" Width="4180" VerticalAlignment="Bottom" Margin="0,0,0,-8" HorizontalAlignment="Right"/>
+        <Image Name="ZenithLogoLogin" Source="pack://application:,,,/src/Assets/ZenithLauncher.png" Width="105" Margin="20,20,0,0" UseLayoutRounding="True" IsHitTestVisible="False" VerticalAlignment="Top" HorizontalAlignment="Left" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+        <Frame Name="ImportFrame" NavigationUIVisibility="Hidden" IsHitTestVisible="False"/>
+        <DockPanel Name="SettingsPanel" Width="87" Height="28" Background="#343434" Margin="0,0,127,0" MinHeight="28" MinWidth="87" VerticalAlignment="Top" HorizontalAlignment="Right" Opacity="0"/>
+        <DockPanel x:Name="MenuPanel" Background="Transparent" Height="22" VerticalAlignment="Top" MouseLeftButtonDown="DragMoveDock"/>
+
+        <Grid Margin="0,0,200,0" Width="Auto" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button Name="UserSettingsButton" Height="30" Background="Transparent" BorderBrush="Transparent" Cursor="Hand" Click="User_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="20" Visibility="Collapsed">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="260" Height="50" CornerRadius="2" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" Duration="00:00:00.15" From="Transparent" To="Transparent"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" Duration="00:00:00.15" From="Transparent" To="Transparent"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+            <Grid MinWidth="50">
+                <TextBlock Name="UserText" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0,0,0,0" Foreground="#838383" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontWeight="Heavy" FontSize="13" SizeChanged="UserText_SizeChanged" IsHitTestVisible="False"/>
+            </Grid>
+        </Grid>
+
+        <DockPanel Name="SettingsThing" Background="Black" Opacity="0" IsHitTestVisible="False" Margin="0,63,0,0"/>
+
+        <Frame x:Name="SettingsFrame" Width="480" Background="Transparent" HorizontalAlignment="Right" NavigationUIVisibility="Hidden" Margin="0,63,0,0">
+            <Frame.RenderTransform>
+                <TranslateTransform x:Name="SettingsFrameTransform" X="0"/>
+            </Frame.RenderTransform>
+        </Frame>
+
+        <Frame x:Name="DownloadsFrame" Width="480" Background="Transparent" HorizontalAlignment="Right" NavigationUIVisibility="Hidden" Margin="0,63,0,0">
+            <Frame.RenderTransform>
+                <TranslateTransform x:Name="DownloadsFrameTransform" X="0"/>
+            </Frame.RenderTransform>
+        </Frame>
+        <Frame Name="AccountUtilsFrame" Width="280" Height="156" Margin="0,50,100,0" NavigationUIVisibility="Hidden" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <DockPanel Name="SettingsBigThing" Background="Black" Opacity="0" IsHitTestVisible="False"/>
+
+        <Frame Name="UpdateFrame" NavigationUIVisibility="Hidden" IsHitTestVisible="True"/>
+
+        <Frame x:Name="SettingsBigFrame" Width="485" Background="Transparent" HorizontalAlignment="Right" NavigationUIVisibility="Hidden" IsHitTestVisible="False" Margin="0,0,0,0">
+            <Frame.RenderTransform>
+                <TranslateTransform x:Name="SettingsFrameBigTransform" X="0"/>
+            </Frame.RenderTransform>
+        </Frame>
+
+        <Button Name="MinimizeBtn" Width="30" Height="22" Background="Transparent" Margin="0,7,85,0" VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="Transparent" Cursor="Hand" Click="Minimize_Click" Grid.Row="1" UseLayoutRounding="True">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Image x:Name="NormalImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Minimize.png" Visibility="Visible"/>
+                        <Image x:Name="HoverImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Minimize_Hovered.png" Visibility="Collapsed"/>
+                        <Image x:Name="PressedImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Minimize_Pressed.png" Visibility="Collapsed"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="NormalImage" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="False">
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button Name="RestoreBtn" Width="28" Height="22" Background="Transparent" Margin="0,7,56,0" BorderBrush="Transparent" Cursor="Hand" Click="Restore_Click" Grid.Row="1" UseLayoutRounding="True" VerticalAlignment="Top" HorizontalAlignment="Right" Opacity="0">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Image x:Name="NormalImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Restore.png" Visibility="Visible"/>
+                        <Image x:Name="HoverImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Restore_Hovered.png" Visibility="Collapsed"/>
+                        <Image x:Name="PressedImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Restore_Pressed.png" Visibility="Collapsed"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="NormalImage" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="False">
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button Name="MaximizeBtn" Width="28" Height="22" Background="Transparent" Margin="0,7,56,0" BorderBrush="Transparent" Cursor="Hand" Click="Maximize_Click" Grid.Row="1" UseLayoutRounding="True" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Image x:Name="NormalImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Maximize.png" Visibility="Visible"/>
+                        <Image x:Name="HoverImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Maximize_Hovered.png" Visibility="Collapsed"/>
+                        <Image x:Name="PressedImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Maximize_Pressed.png" Visibility="Collapsed"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="NormalImage" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="False">
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button Name="CloseBtn" Width="48" Height="22" Background="Transparent" Margin="0,7,7,0" BorderBrush="Transparent" Cursor="Hand" Click="Close_Click" Grid.Row="1" UseLayoutRounding="True" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Image x:Name="NormalImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Close.png" Visibility="Visible"/>
+                        <Image x:Name="HoverImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Close_Hovered.png" Visibility="Collapsed"/>
+                        <Image x:Name="PressedImage" Source="pack://application:,,,/src/Assets/Content/New UI/Window/Close_Pressed.png" Visibility="Collapsed"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="NormalImage" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="False">
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button Name="SettingsBtn" Width="14" Height="14" Background="Transparent" Margin="0,7,147,0" VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="Transparent" Cursor="Hand" Click="Settings_Click" Grid.Row="1" Opacity="0" UseLayoutRounding="True">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Image x:Name="NormalImage" Source="pack://application:,,,/src/Assets/GearGray.png" Visibility="Visible" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+                        <Image x:Name="HoverImage" Source="pack://application:,,,/src/Assets/GearHover.png" Visibility="Collapsed" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+                        <Image x:Name="PressedImage" Source="pack://application:,,,/src/Assets/GearClick.png" Visibility="Collapsed" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="NormalImage" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="False">
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Name="TasksBtn" Width="12" MinWidth="14" Height="14" Margin="0,7,181,0" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent" Click="Downloads_Click" Cursor="Hand" BorderBrush="Transparent" Opacity="0" UseLayoutRounding="True">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Image x:Name="NormalImage" Source="pack://application:,,,/src/Assets/DownloadIcon.png" Visibility="Visible" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+                        <Image x:Name="HoverImage" Source="pack://application:,,,/src/Assets/DownloadIconhover.png" Visibility="Collapsed" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+                        <Image x:Name="PressedImage" Source="pack://application:,,,/src/Assets/DownloadIconhover.png" Visibility="Collapsed" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="NormalImage" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="False">
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button Name="SettingsBigBtn" Width="14" Height="14" Background="Transparent" Margin="0,7,147,0" VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="Transparent" Cursor="Hand" Click="SettingsBig_Click" Grid.Row="1" Opacity="1" UseLayoutRounding="True">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Image x:Name="NormalImage" Source="pack://application:,,,/src/Assets/Gear.png" Visibility="Visible" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+                        <Image x:Name="HoverImage" Source="pack://application:,,,/src/Assets/GearHover.png" Visibility="Collapsed" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+                        <Image x:Name="PressedImage" Source="pack://application:,,,/src/Assets/GearClick.png" Visibility="Collapsed" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="NormalImage" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="HoverImage" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="False">
+                            <Setter TargetName="PressedImage" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Frame Name="ShutdownFrame" Background="Transparent" VerticalAlignment="Bottom" Opacity="1" IsHitTestVisible="False" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

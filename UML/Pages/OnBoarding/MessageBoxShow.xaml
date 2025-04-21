@@ -1,0 +1,15 @@
+﻿<Page x:Class="UML.Pages.OnBoarding.MessageBoxShow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UML.Pages.OnBoarding"
+      mc:Ignorable="d" 
+      Height="850" Width="1560"
+      Title="MessageBoxShow">
+
+    <Grid>
+        <DockPanel Opacity="0.4" Background="Black"/>
+        <Frame Width="962" Height="578" Name="MessageBoxFrame"/>
+    </Grid>
+</Page>

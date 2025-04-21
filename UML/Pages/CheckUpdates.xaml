@@ -1,0 +1,23 @@
+﻿<Page x:Class="UML.Security.CheckUpdates"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UML"
+        mc:Ignorable="d"
+        xmlns:mp="http://schemas.mpcoding.com/mpcoding/wpf/loadinganimation"
+        Title="CheckUpdates" Height="Auto" Width="Auto"
+        Background="Transparent">
+    <Grid>
+        <Frame  Name="CantConnectFrame" Width="1560" Height="850"/>
+        <TextBlock x:Name="StatusText" Text="{DynamicResource CheckingConnection}" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="25" FontWeight="SemiBold" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+
+        <Viewbox Name="Loading" Width="45" Height="10" Margin="0,70,0,0">
+            <mp:ThreeDotsAnimation Color="White" Duration="0:0:0.8"/>
+        </Viewbox>
+
+        <Frame Name="Frame4ShittyPage" Width="1560" Height="850"/>
+
+
+    </Grid>
+</Page>

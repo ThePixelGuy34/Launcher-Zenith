@@ -1,0 +1,206 @@
+
+@font-face {
+  font-family: 'BrutalType';
+  src: url("../fonts/BrutalType-Regular/BrutalType-Regular.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/BrutalType-Regular/BrutalType-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/BrutalType-Regular/BrutalType-Regular.woff2") format("woff2"), url("../fonts/BrutalType-Regular/BrutalType-Regular.woff") format("woff"), url("../fonts/BrutalType-Regular/BrutalType-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'BrutalType';
+  src: url("../fonts/BrutalType-ExtraLight/BrutalType-ExtraLight.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/BrutalType-ExtraLight/BrutalType-ExtraLight.eot?#iefix") format("embedded-opentype"), url("../fonts/BrutalType-ExtraLight/BrutalType-ExtraLight.woff2") format("woff2"), url("../fonts/BrutalType-ExtraLight/BrutalType-ExtraLight.woff") format("woff"), url("../fonts/BrutalType-ExtraLight/BrutalType-ExtraLight.ttf") format("truetype"); }
+
+  
+body {
+  background-color: rgb(39, 41, 45);
+  font-family: BrutalType;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 38px;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+#size-downloadbytespeed-chart {
+  margin-left: auto;
+  margin-right: 38px;
+  flex-shrink: 0;
+}
+
+.spacer {
+  margin-top: 30px;
+}
+
+.installerText {
+  font-weight: lighter;
+  font-family: BrutalType;
+  font-size: 0.75em;
+  color: white;
+}
+
+.downloadHeader {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.downloadText {
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.bar {
+  stroke: none;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.line {
+  fill: none;
+  stroke-width: 3px;
+}
+
+.area {
+  stroke-width: 0px;
+}
+
+.areabg {
+  opacity: 0.5;
+}
+
+.focus circle {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+.domain {
+  fill: none;
+  stroke: white;
+  opacity: 0.5;
+}
+
+.domain text {
+  fill: white;
+  stroke-width: 0px;
+  opacity: 1.0;
+}
+
+.speedline {
+  opacity: 1.0;
+  stroke-width: 2;
+}
+
+.speedlinetext {
+  font-weight: lighter;
+  font-family: BrutalType;
+  font-size: 0.65em;
+  fill: white;
+  color: white;
+}
+
+.downloadHeader {
+  height: 20px;
+}
+
+.downloadHealth {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 18px;
+  width: auto;
+  cursor: default;
+}
+
+.downloadHealthText {
+  padding: 0 6px 0 6px;
+  -webkit-text-stroke: .2px;
+}
+
+.downloadHealthInfo {
+  transition: all 60ms linear;
+  opacity: 0;
+  margin-left: -10px;
+
+  border-radius: 0 3px 3px 0;
+  color: white;
+  margin-right: 1px;
+  padding: 0 6px 0 6px;
+  
+  width: auto;
+  background-color: rgb(39, 41, 45);
+}
+
+.downloadHealth:hover .downloadHealthInfo {
+  opacity: 1;
+  margin-left: 0;
+}
+
+.downloadHealthText.none {
+  display: none;  
+}
+
+.installerText.downloadHealthText.excellent {
+  color: #95c990;
+  border-left: 2px solid #95c990;
+  
+  transition: all 60ms linear;
+}
+.installerText.downloadHealthText.excellent:hover {
+  background-color: #2f422d;
+}
+
+
+.installerText.downloadHealthText.ok {
+  color: #f4c842;
+  border-left: 2px solid #f4c842;  
+
+  transition: all 60ms linear;
+}
+.installerText.downloadHealthText.ok:hover {
+  background-color: #443e2c;
+}
+
+
+.installerText.downloadHealthText.good {
+  color: #aae0a4;
+  border-left: 2px solid #aae0a4;
+
+  transition: all 60ms linear;
+}
+.installerText.downloadHealthText.good:hover {
+  background-color: #253523;
+}
+
+
+.installerText.downloadHealthText.poor {
+  color: #dc5353;
+  border-left: 2px solid #dc5353;
+
+  transition: all 60ms linear;
+}
+.installerText.downloadHealthText.poor:hover {
+  background-color: #462929;
+}
+
+
+.installerText.downloadHealthText.disconnected {
+  color: #dc5353;
+  border-left: 2px solid #dc5353;
+
+  transition: all 60ms linear;
+}
+.installerText.downloadHealthText.disconnected:hover {
+  background-color: #462929;
+}
+
+.tempNoShow {
+  display: none !important;
+}

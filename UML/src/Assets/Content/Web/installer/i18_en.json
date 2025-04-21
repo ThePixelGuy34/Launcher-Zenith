@@ -1,0 +1,20 @@
+{
+    "messages.com.epicgames.launcher.installer.downloadTitle" : "DOWNLOAD",
+    "messages.com.epicgames.launcher.installer.diskReadTitle" : "READ",
+    "messages.com.epicgames.launcher.installer.diskWriteTitle" : "WRITE",
+    "messages.com.epicgames.launcher.installer.operationsTitle" : "OPERATIONS",
+
+    "messages.com.epicgames.launcher.installer.downloadHealth.status.disconnected" : "Disconnected",
+    "messages.com.epicgames.launcher.installer.downloadHealth.status.excellent" : "Excellent",
+    "messages.com.epicgames.launcher.installer.downloadHealth.status.good" : "Good",
+    "messages.com.epicgames.launcher.installer.downloadHealth.status.ok" : "OK",
+    "messages.com.epicgames.launcher.installer.downloadHealth.status.poor" : "Poor",
+
+    "messages.com.epicgames.launcher.installer.downloadHealth.info.disconnected" : "No download progress",
+    "messages.com.epicgames.launcher.installer.downloadHealth.info.excellent" : "100% request success",
+    "messages.com.epicgames.launcher.installer.downloadHealth.info.good" : "over 99% request success",
+    "messages.com.epicgames.launcher.installer.downloadHealth.info.ok" : "over 90% request success",
+    "messages.com.epicgames.launcher.installer.downloadHealth.info.poor" : "under 90% request success",
+
+    "messages.com.epicgames.launcher.installer.downloadSize.downloadedCurrentOfTotalSeparator" : "of"
+}

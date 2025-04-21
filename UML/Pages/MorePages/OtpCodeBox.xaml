@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="UML.Pages.MorePages.OtpCodeBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <Style x:Key="OtpTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="MaxLength" Value="1"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#1a1a1a"/>
+            <Setter Property="Background" Value="#0a0a0a"/>
+            <Setter Property="Foreground" Value="#cccccc"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                          Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="#999999"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#0078D7"/>
+                                <Setter Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#F5F5F5"/>
+                                <Setter Property="Foreground" Value="#999999"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox x:Name="Digit1" Style="{StaticResource OtpTextBoxStyle}" TextChanged="Digit_TextChanged" PreviewTextInput="Digit_PreviewTextInput"/>
+            <TextBox x:Name="Digit2" Style="{StaticResource OtpTextBoxStyle}" TextChanged="Digit_TextChanged" PreviewTextInput="Digit_PreviewTextInput"/>
+            <TextBox x:Name="Digit3" Style="{StaticResource OtpTextBoxStyle}" TextChanged="Digit_TextChanged" PreviewTextInput="Digit_PreviewTextInput"/>
+            <TextBox x:Name="Digit4" Style="{StaticResource OtpTextBoxStyle}" TextChanged="Digit_TextChanged" PreviewTextInput="Digit_PreviewTextInput"/>
+            <TextBox x:Name="Digit5" Style="{StaticResource OtpTextBoxStyle}" TextChanged="Digit_TextChanged" PreviewTextInput="Digit_PreviewTextInput"/>
+            <TextBox x:Name="Digit6" Style="{StaticResource OtpTextBoxStyle}" TextChanged="Digit_TextChanged" PreviewTextInput="Digit_PreviewTextInput"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

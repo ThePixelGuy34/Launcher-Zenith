@@ -1,0 +1,190 @@
+﻿<Page x:Class="UML.Pages.MainFrame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="Auto" Width="Auto" 
+        Background="Transparent" 
+        xmlns:System="clr-namespace:System;assembly=System.Runtime"
+        xmlns:class="clr-namespace:UML.Class">
+
+    <Page.Resources>
+        <Style x:Key="MainTabBtn" TargetType="Button">
+            <Setter Property="UseLayoutRounding" Value="True"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="#8e8e8e"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="Transparent" 
+                      HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{TemplateBinding Content}" 
+                               TextAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                               Foreground="{TemplateBinding Foreground}" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                            <Border x:Name="Underline" Grid.Row="1" Height="4" 
+                            Background="Transparent" 
+                            SnapsToDevicePixels="True"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Foreground" Value="#c7c7c7"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="Transparent"
+                              HorizontalAlignment="Stretch" 
+                              VerticalAlignment="Stretch">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="5"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{TemplateBinding Content}" 
+                                       Foreground="{TemplateBinding Foreground}" 
+                                       TextAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+                                    <Border Grid.Row="1" Height="4" 
+                                    Background="#aae0a4" 
+                                    SnapsToDevicePixels="True"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </MultiTrigger>
+
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsPressed" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Foreground" Value="#ffffff"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="Transparent"
+                              HorizontalAlignment="Stretch" 
+                              VerticalAlignment="Stretch">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="5"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{TemplateBinding Content}" 
+                                       Foreground="{TemplateBinding Foreground}" 
+                                       TextAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+                                    <Border Grid.Row="1" Height="4" Background="#95c990" SnapsToDevicePixels="True"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </MultiTrigger>
+
+                <Trigger Property="class:ButtonActivity.IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="#ffffff"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="Transparent"
+                              HorizontalAlignment="Stretch" 
+                              VerticalAlignment="Stretch">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="5"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{TemplateBinding Content}" 
+                                       Foreground="{TemplateBinding Foreground}" 
+                                       TextAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+                                    <Border Grid.Row="1" Height="4" 
+                                    Background="#95c990" 
+                                    SnapsToDevicePixels="True"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Border Background="Transparent" BorderBrush="Transparent" BorderThickness="1">
+        <Grid>
+            <DockPanel Height="850" Width="1560" Opacity="0" IsHitTestVisible="False"/>
+            <Frame x:Name="Frame4PageSwitch" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent" NavigationUIVisibility="Hidden" Margin="0,63,0,0"/>
+            <DockPanel Height="63" VerticalAlignment="Top" Background="#1e1e1e" HorizontalAlignment="Stretch"/>
+            <!--<Button x:Name="CommunityButton" class:ButtonActivity.IsSelected="False" Content="{DynamicResource CommunityButton}" Cursor="Hand" Style="{StaticResource MainTabBtn}" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontWeight="Bold" Margin="-643.6,32.6,0,0" VerticalAlignment="Top" Background="Transparent" FontSize="14" Click="Community_Click" Width="120" Height="30"/>-->
+            <Button x:Name="FortniteButton" class:ButtonActivity.IsSelected="False" Content="{DynamicResource FortniteButton}" Cursor="Hand" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontWeight="Bold" Margin="157,33,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MainTabBtn}" FontSize="14" Click="FNPage_Click" Width="94" Height="30"/>
+            <!--<Button x:Name="UT" class:ButtonActivity.IsSelected="False" Cursor="Hand" Style="{StaticResource MainTabBtn}" Content="ROCKET LEAGUE" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontWeight="Bold" Margin="251.4,33,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="UTPage_Click" Height="30" Width="145" FontSize="14"/>-->
+
+            <Button Width="105" Background="Transparent" BorderThickness="0" Margin="20,15,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="35" Click="HomeLogo_Click" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image Source="pack://application:,,,/src/Assets/ZenithLauncher.png" Stretch="Uniform" IsHitTestVisible="True" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="UseLayoutRounding" Value="True"/>
+                        <Setter Property="Foreground" Value="#1780ff"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" Duration="0:0:0.15" From="#8c8c8c" To="#95c990"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" Duration="0:0:0.15" From="#95c990" To="#8c8c8c"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" Duration="0:0:0.1" To="#aae0a4"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" Duration="0:0:0.1" To="#8c8c8c"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Border>
+</Page>

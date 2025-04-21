@@ -1,0 +1,374 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>src\Assets\Zenith-modified.ico</ApplicationIcon>
+    <AssemblyName>Zenith</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Assets\**" />
+    <EmbeddedResource Remove="Assets\**" />
+    <None Remove="Assets\**" />
+    <Page Remove="Assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\isaac\.nuget\packages\mpcoding.wpf.loadinganimations\1.0.2\contentFiles\any\netcoreapp3.1\MpCodingDP.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="src\Assets\81VoPo+3L2L.jpg" />
+    <None Remove="src\Assets\arrow.png" />
+    <None Remove="src\Assets\buttonClose.png" />
+    <None Remove="src\Assets\buttonCloseHover.png" />
+    <None Remove="src\Assets\ButtonMaximise.png" />
+    <None Remove="src\Assets\buttonMaximized.png" />
+    <None Remove="src\Assets\buttonMaximizeHover.png" />
+    <None Remove="src\Assets\buttonMinimize.png" />
+    <None Remove="src\Assets\buttonMinimizeHover.png" />
+    <None Remove="src\Assets\careerbg.jpg" />
+    <None Remove="src\Assets\CloseV2.png" />
+    <None Remove="src\Assets\ComBackground.png" />
+    <None Remove="src\Assets\ComboDropdown.png" />
+    <None Remove="src\Assets\Content\New UI\Sharing\twitter_icon.png" />
+    <None Remove="src\Assets\Content\New UI\Sharing\YouTube_icon.png" />
+    <None Remove="src\Assets\Content\New UI\task_mini_graphic.png" />
+    <None Remove="src\Assets\Content\New UI\Window\Close.PNG" />
+    <None Remove="src\Assets\Content\New UI\Window\Close_Hovered.PNG" />
+    <None Remove="src\Assets\Content\New UI\Window\Close_Pressed.PNG" />
+    <None Remove="src\Assets\Content\New UI\Window\Maximize.png" />
+    <None Remove="src\Assets\Content\New UI\Window\Maximize_Hovered.png" />
+    <None Remove="src\Assets\Content\New UI\Window\Maximize_Pressed.png" />
+    <None Remove="src\Assets\Content\New UI\Window\Minimize.png" />
+    <None Remove="src\Assets\Content\New UI\Window\Minimize_Hovered.png" />
+    <None Remove="src\Assets\Content\New UI\Window\Minimize_Pressed.png" />
+    <None Remove="src\Assets\Content\New UI\Window\Restore.png" />
+    <None Remove="src\Assets\Content\New UI\Window\Restore_Hovered.png" />
+    <None Remove="src\Assets\Content\New UI\Window\Restore_Pressed.png" />
+    <None Remove="src\Assets\Content\Web\background\bgFnFailure.png" />
+    <None Remove="src\Assets\Content\Web\background\BG_default.png" />
+    <None Remove="src\Assets\Content\Web\background\BG_fortnite.png" />
+    <None Remove="src\Assets\Content\Web\background\BG_ue.png" />
+    <None Remove="src\Assets\DiscordAuthLogo.png" />
+    <None Remove="src\Assets\discordicon.png" />
+    <None Remove="src\Assets\DiscordIconV2.png" />
+    <None Remove="src\Assets\DiscordIconV3.png" />
+    <None Remove="src\Assets\DownloadButton.png" />
+    <None Remove="src\Assets\DownloadIcon.png" />
+    <None Remove="src\Assets\downloadiconhover.png" />
+    <None Remove="src\Assets\fbr_bg.png" />
+    <None Remove="src\Assets\fnlogos1.png" />
+    <None Remove="src\Assets\FNPageBG.png" />
+    <None Remove="src\Assets\FolderIcon.png" />
+    <None Remove="src\Assets\fort.png" />
+    <None Remove="src\Assets\Fortnite.png" />
+    <None Remove="src\Assets\Gear.png" />
+    <None Remove="src\Assets\GearClick.png" />
+    <None Remove="src\Assets\GearGray.png" />
+    <None Remove="src\Assets\GearHover.png" />
+    <None Remove="src\Assets\GearUnavailable.png" />
+    <None Remove="src\Assets\GoogleAuth.png" />
+    <None Remove="src\Assets\LanguageEarth.png" />
+    <None Remove="src\Assets\launcherbg.png" />
+    <None Remove="src\Assets\LauyncherHUigjrpojtrijhkt.png" />
+    <None Remove="src\Assets\llamacomingsoon.png" />
+    <None Remove="src\Assets\LoadingBarFixed.png" />
+    <None Remove="src\Assets\LoadingBarZenithLauncher.png" />
+    <None Remove="src\Assets\MessageBoxContainer.png" />
+    <None Remove="src\Assets\MessageBoxTop.png" />
+    <None Remove="src\Assets\MinimizeV2.png" />
+    <None Remove="src\Assets\oasissmall.png" />
+    <None Remove="src\Assets\playnowlight.png" />
+    <None Remove="src\Assets\playnownormal.png" />
+    <None Remove="src\Assets\RLBG.png" />
+    <None Remove="src\Assets\RlLogo.png" />
+    <None Remove="src\Assets\RocketLeagueLogo.png" />
+    <None Remove="src\Assets\ScrollViewer\ScrollBar.png" />
+    <None Remove="src\Assets\ScrollViewer\ScrollHand.png" />
+    <None Remove="src\Assets\settingsiconhover.png" />
+    <None Remove="src\Assets\SettingsImg.png" />
+    <None Remove="src\Assets\SettingsImgWhite.png" />
+    <None Remove="src\Assets\Sevander.png" />
+    <None Remove="src\Assets\TaskQueueIcon.png" />
+    <None Remove="src\Assets\twittericon.png" />
+    <None Remove="src\Assets\UnknIcon.png" />
+    <None Remove="src\Assets\UnknIconBlack.png" />
+    <None Remove="src\Assets\UnrealTournament.png" />
+    <None Remove="src\Assets\UpdatesTab1.png" />
+    <None Remove="src\Assets\user.png" />
+    <None Remove="src\Assets\UserOnline.png" />
+    <None Remove="src\Assets\ut.png" />
+    <None Remove="src\Assets\ut2.png" />
+    <None Remove="src\Assets\UtilityBtns\CloseClick.png" />
+    <None Remove="src\Assets\UtilityBtns\CloseHoverV2.png" />
+    <None Remove="src\Assets\UtilityBtns\CloseV2.png" />
+    <None Remove="src\Assets\UtilityBtns\MinimizeClick.png" />
+    <None Remove="src\Assets\UtilityBtns\MinimizeHoverV2.png" />
+    <None Remove="src\Assets\UtilityBtns\MinimizeV2.png" />
+    <None Remove="src\Assets\youtubeicon.png" />
+    <None Remove="src\Assets\ZenithLauncher.png" />
+    <None Remove="src\Fonts\BrutalType-Black.ttf" />
+    <None Remove="src\Fonts\BrutalType-Bold.ttf" />
+    <None Remove="src\Fonts\BrutalType-ExtraBold.ttf" />
+    <None Remove="src\Fonts\BrutalType-ExtraLight.ttf" />
+    <None Remove="src\Fonts\BrutalType-Light.otf" />
+    <None Remove="src\Fonts\BrutalType-Light.ttf" />
+    <None Remove="src\Fonts\BrutalType-Medium.ttf" />
+    <None Remove="src\Fonts\BrutalType-Regular.otf" />
+    <None Remove="src\Fonts\BrutalType-Thin.ttf" />
+    <None Remove="src\Fonts\BrutalType.ttf" />
+    <None Remove="src\Fonts\BurbankBigCondensed-Black.otf" />
+    <None Remove="src\sounds\buttonClick.mp3" />
+    <None Remove="src\sounds\career.wav" />
+    <None Remove="src\sounds\careerpage.mp3" />
+    <None Remove="src\sounds\flashbang.mp3" />
+    <None Remove="src\sounds\videoplayback.mp3" />
+    <None Remove="src\sounds\violin.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="src\Assets\Zenith-modified.ico" />
+    <Content Include="src\sounds\career.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Confuser.MSBuild" Version="1.6.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Discord.Net" Version="3.16.0" />
+    <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
+    <PackageReference Include="ini-parser" Version="2.5.2" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2957.106" />
+    <PackageReference Include="Microsoft.WindowsAPICodePack.Shell" Version="1.1.0" />
+    <PackageReference Include="MpCoding.WPF.LoadingAnimations" Version="1.0.2" />
+    <PackageReference Include="NetDiscordRPC" Version="1.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="112.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.10" />
+    <PackageReference Include="WindowsAPICodePack" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="src\Assets\arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\ComBackground.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\ComboDropdown.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Sharing\twitter_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Sharing\YouTube_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\task_mini_graphic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Close.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Close_Hovered.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Close_Pressed.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Maximize.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Maximize_Hovered.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Maximize_Pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Minimize.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Minimize_Hovered.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Minimize_Pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Restore.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Restore_Hovered.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\New UI\Window\Restore_Pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\Web\background\bgFnFailure.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\Web\background\BG_default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\Web\background\BG_fortnite.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Content\Web\background\BG_ue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\DiscordAuthLogo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\discordicon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\DiscordIconV2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\DiscordIconV3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\DownloadButton.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\DownloadIcon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\downloadiconhover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\fort.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\Gear.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\GearClick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\GearGray.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\GearHover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\GearUnavailable.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\GoogleAuth.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\LanguageEarth.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\LoadingBarFixed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\LoadingBarZenithLauncher.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\MessageBoxContainer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\MessageBoxTop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\RlLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\ScrollViewer\ScrollBar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\user.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\UserOnline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\UtilityBtns\CloseClick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\UtilityBtns\CloseHoverV2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\UtilityBtns\CloseV2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\UtilityBtns\MinimizeClick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\UtilityBtns\MinimizeHoverV2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\UtilityBtns\MinimizeV2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Assets\ZenithLauncher.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Fonts\BrutalType-Black.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Fonts\BrutalType-Bold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Fonts\BrutalType-ExtraBold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Fonts\BrutalType-ExtraLight.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Fonts\BrutalType-Light.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Fonts\BrutalType-Light.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Fonts\BrutalType-Medium.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Fonts\BrutalType-Regular.otf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Fonts\BrutalType-Thin.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Fonts\BrutalType.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\Fonts\BurbankBigCondensed-Black.otf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="src\sounds\careerpage.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="src\Assets\ScrollViewer\ScrollHand.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\sounds\buttonClick.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\sounds\flashbang.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\sounds\videoplayback.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="src\sounds\violin.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

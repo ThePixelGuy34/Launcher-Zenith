@@ -1,0 +1,388 @@
+﻿<Page x:Class="UML.Pages.LoginPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UML"
+        mc:Ignorable="d"
+        xmlns:class="clr-namespace:UML.Class"
+        Title="LoginScreen" Height="Auto" Width="Auto" Background="Transparent">
+    <Page.Resources>
+        <Style x:Key="EmailTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="#7c7c7c" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="#000000" Opacity="0.6" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Padding" Value="8,10,8,5" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2">
+                                <Grid>
+                                    <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" VerticalAlignment="Center" Margin="2,0,2,0"/>
+                                    <TextBlock x:Name="placeholderText" Text="EMAIL" Foreground="#999999" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="{TemplateBinding FontSize}" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontWeight="Medium">
+                                        <TextBlock.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform x:Name="placeholderScale" ScaleX="1" ScaleY="1"/>
+                                                <TranslateTransform x:Name="placeholderTranslate" X="0" Y="0"/>
+                                            </TransformGroup>
+                                        </TextBlock.RenderTransform>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="GotFocus">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="placeholderScale" Storyboard.TargetProperty="ScaleX" To="0.7" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="placeholderScale" Storyboard.TargetProperty="ScaleY" To="0.7" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="placeholderTranslate" Storyboard.TargetProperty="Y" To="-10" Duration="0:0:0.2" />
+                                        <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="White" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                    <Condition Property="IsFocused" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="placeholderScale" Storyboard.TargetProperty="ScaleX" To="1" Duration="0:0:0.2" />
+                                            <DoubleAnimation Storyboard.TargetName="placeholderScale" Storyboard.TargetProperty="ScaleY" To="1" Duration="0:0:0.2" />
+                                            <DoubleAnimation Storyboard.TargetName="placeholderTranslate" Storyboard.TargetProperty="Y" To="0" Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.EnterActions>
+                            </MultiTrigger>
+                            <Trigger Property="IsFocused" Value="False">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="#7c7c7c" Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="placeholderText" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="PasswordTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="#7c7c7c" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Color="#000000" Opacity="0.6" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Padding" Value="8,10,8,5" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2">
+                                <Grid>
+                                    <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" VerticalAlignment="Center" Margin="2,0,2,0"/>
+                                    <TextBlock x:Name="placeholderText" Text="PASSWORD" Foreground="#999999" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="{TemplateBinding FontSize}" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontWeight="Medium">
+                                        <TextBlock.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform x:Name="placeholderScale" ScaleX="1" ScaleY="1"/>
+                                                <TranslateTransform x:Name="placeholderTranslate" X="0" Y="0"/>
+                                            </TransformGroup>
+                                        </TextBlock.RenderTransform>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="GotFocus">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="placeholderScale" Storyboard.TargetProperty="ScaleX" To="0.7" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="placeholderScale" Storyboard.TargetProperty="ScaleY" To="0.7" Duration="0:0:0.2" />
+                                        <DoubleAnimation Storyboard.TargetName="placeholderTranslate" Storyboard.TargetProperty="Y" To="-10" Duration="0:0:0.2" />
+                                        <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="White" Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                    <Condition Property="IsFocused" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="placeholderScale" Storyboard.TargetProperty="ScaleX" To="1" Duration="0:0:0.2" />
+                                            <DoubleAnimation Storyboard.TargetName="placeholderScale" Storyboard.TargetProperty="ScaleY" To="1" Duration="0:0:0.2" />
+                                            <DoubleAnimation Storyboard.TargetName="placeholderTranslate" Storyboard.TargetProperty="Y" To="0" Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.EnterActions>
+                            </MultiTrigger>
+                            <Trigger Property="IsFocused" Value="False">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="#7c7c7c" Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="placeholderText" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DiscordButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#6e85d3" BorderBrush="Transparent" BorderThickness="0" Padding="20,0,0,0" CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#8399e2"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#6276ba"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="Gray"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="DarkGray"/>
+                                <Setter Property="Foreground" Value="DarkGray"/>
+                                <Setter Property="Cursor" Value="Arrow"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+        <Style x:Key="GoogleButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="#ffffff" BorderBrush="Transparent" BorderThickness="0" Padding="10" CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#ffffff"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#ffffff"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="Gray"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="DarkGray"/>
+                                <Setter Property="Foreground" Value="DarkGray"/>
+                                <Setter Property="Cursor" Value="Arrow"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ExtraButtons" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="pack://application:,,,/src/Fonts/#Brutal Type"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Foreground" Value="#85c990"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Padding="0" CornerRadius="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#aae0a4"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Foreground" Value="#aae0a4"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="#363636"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="DarkGray"/>
+                                <Setter Property="Foreground" Value="#bcbcbc"/>
+                                <Setter Property="Cursor" Value="Arrow"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Name="Grid">
+        <Grid Name="LoginGrid" Opacity="1">
+            <Border Width="1100" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,500" CornerRadius="4">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#00a8f3" Offset="0" />
+                        <GradientStop Color="#008dcc" Offset="0.5" />
+                        <GradientStop Color="#005f89" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <TextBlock Text="NOTICE | Google Authentication is currently unfinished, therefore the button is disabled. Authenticate via Discord or email and password." Foreground="White" FontSize="14.5" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" UseLayoutRounding="True" IsHitTestVisible="False"/>
+            </Border>
+            <TextBlock Text="OR" Foreground="White" FontSize="14.5" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,270" UseLayoutRounding="True" IsHitTestVisible="False"/>
+            <DockPanel Width="223" Height="2" Background="#9b9b9b" Margin="-277,-270,0,0" UseLayoutRounding="True"/>
+            <DockPanel Width="223" Height="2" Background="#9b9b9b" Margin="277,-270,0,0" UseLayoutRounding="True"/>
+            <TextBox Name="EmailBox" Width="497" Height="48" Margin="0,-150,0,0" HorizontalAlignment="Center" Style="{StaticResource EmailTextBox}" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" UseLayoutRounding="True" FontWeight="Medium"/>
+            <TextBox Name="PasswordBox" Width="497" Height="48" Margin="0,10,0,0" Style="{StaticResource PasswordTextBox}" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontWeight="Medium" UseLayoutRounding="True"/>
+
+            <Button Name="DiscordLogin" Style="{StaticResource DiscordButton}" Width="235" Height="45" Margin="260,-376,0,0" Foreground="White" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="14.5" FontWeight="DemiBold" Click="Login_Click" UseLayoutRounding="True">
+                <Grid Width="235" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-20,0,0,0">
+                    <TextBlock Text="SIGN IN WITH DISCORD" UseLayoutRounding="True" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="45,0,0,0"/>
+                    <Image Source="pack://application:,,,/src/Assets/DiscordIconV3.png" UseLayoutRounding="True" Margin="-175,0,0,0" Width="27" RenderOptions.BitmapScalingMode="HighQuality"/>
+                </Grid>
+            </Button>
+            <Button Name="GoogleLogin" Style="{StaticResource GoogleButton}" Width="235" Height="45" Margin="-260,-375,0,0" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontSize="14.5" FontWeight="DemiBold" UseLayoutRounding="True">
+                <Grid Width="235" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+                    <TextBlock Text="SIGN IN WITH GOOGLE" UseLayoutRounding="True" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50,0,0,0"/>
+                </Grid>
+            </Button>
+            <Image Source="pack://application:,,,/src/Assets/GoogleAuth.png" UseLayoutRounding="True" Margin="-425,-376,0,0" Width="33" Height="30" IsHitTestVisible="False" RenderOptions.BitmapScalingMode="HighQuality"/>
+
+            <Button Name="SignInBtn" Width="320" Height="45" Content="SIGN IN" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" FontWeight="Medium" FontSize="13.5" Margin="0,295,0,0" UseLayoutRounding="True" Click="SignInEmail_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="320" Height="45" CornerRadius="3" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#85c990"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="00:00:00.15" From="#85c990" To="#aae0a4"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="00:00:00.15" From="#aae0a4" To="#85c990"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="00:00:00.1" To="#85c990"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="00:00:00.1" To="#85c990"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="00:00:00.1" To="#bcbcbc"/>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" Duration="00:00:00:1" To="#363636"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="00:00:00.1" To="#85c990"/>
+                                            <ColorAnimation Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" Duration="00:00:00:1" To="#ffffff"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button Name="ForgotPassword" Width="150" Style="{StaticResource ExtraButtons}" Content="Forgot your password?" Margin="365,155,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" UseLayoutRounding="True" FontSize="13.5"/>
+
+
+            <TextBlock Text="Don't have a Zenith account?" HorizontalAlignment="Center" Foreground="White" FontSize="13.5" FontFamily="pack://application:,,,/src/Fonts/#Brutal Type" VerticalAlignment="Center" Margin="-75,410,0,0" UseLayoutRounding="True"/>
+            <Button Name="SignUp" Width="50" Style="{StaticResource ExtraButtons}" Content="Sign Up" Margin="170,410,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" UseLayoutRounding="True" FontSize="13.5"/>
+        </Grid>
+
+        <wv2:WebView2 Name="webView" Visibility="Collapsed" IsHitTestVisible="False"/>
+    </Grid>
+</Page>
