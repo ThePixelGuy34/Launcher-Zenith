@@ -1,1 +1,1 @@
-I want to help for finché this launcher.
+I want to help Zenith.
